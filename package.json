@@ -1,0 +1,23 @@
+{
+  "devDependencies": {
+    "tailwindcss": "^4.1.11"
+  },
+  "name": "alejandro_portfolio",
+  "version": "1.0.0",
+  "description": "This is my minimalist, custom-coded portfolio built with HTML, Tailwind CSS, and vanilla JavaScript. It showcases my bio, projects, resume, and contact info.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aluxian2130/alejandro_portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aluxian2130/alejandro_portfolio/issues"
+  },
+  "homepage": "https://github.com/Aluxian2130/alejandro_portfolio#readme"
+}

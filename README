@@ -1,0 +1,24 @@
+# Alejandro Santos | Portfolio
+
+This is my minimalist, custom-coded portfolio built with HTML, Tailwind CSS, and vanilla JavaScript. It showcases my bio, projects, resume, and contact info.
+
+### 🔧 Tech Stack
+- HTML5
+- Tailwind CSS
+- JavaScript (for dynamic project rendering & dark mode)
+
+### 🌐 Live Site
+[https://yourusername.github.io/your-repo-name](https://yourusername.github.io/your-repo-name)
+
+### 📄 Features
+- Dark mode toggle
+- Scroll-linked navigation
+- Dynamic project loading
+- Resume download
+- Fully responsive layout
+
+### 🚀 Setup
+1. Clone the repo
+2. Add your `resume.pdf` to `/assets/`
+3. Replace the placeholder email and project info
+4. Push to GitHub and enable Pages from the Settings tab

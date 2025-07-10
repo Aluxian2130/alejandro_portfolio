@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alejandro Santos | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    };
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .active-link {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 font-sans">
+
+  <!-- Navbar -->
+  <nav class="w-full flex justify-between items-center p-4 shadow-md sticky top-0 bg-white dark:bg-gray-900 z-50">
+    <h1 class="text-xl font-bold">Aluxian's Console</h1>
+    <div class="space-x-4">
+      <a href="#about" class="nav-link hover:underline">About</a>
+      <a href="#projects" class="nav-link hover:underline">Projects</a>
+      <a href="#resume" class="nav-link hover:underline">Resume</a>
+      <a href="#contact" class="nav-link hover:underline">Contact</a>
+      <button onclick="toggleDarkMode()" class="ml-4 px-3 py-1 border rounded">🌓</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="min-h-screen flex flex-col justify-center items-center text-center px-4">
+    <!-- Circle avatar container -->
+    <div class="w-56 h-40 mb-6 rounded-full overflow-hidden shadow-lg flex items-center justify-center">
+      <img id="hero-avatar" src="assets/images/UA.jpg" alt="Alejandro Santos" class="w-full h-full object-cover transition-opacity duration-500" style="border-radius: 50% / 40%;" />
+    </div>
+    <h2 class="text-4xl font-bold mb-2">Hello, I'm Alejandro Santos</h2>
+    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-xl">
+      I'm a software engineer passionate about building clean and performant applications. Welcome to my minimalist portfolio.
+    </p>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="px-6 py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-3xl mx-auto text-center">
+      <h3 class="text-2xl font-semibold mb-4">About Me</h3>
+      <p class="text-gray-700 dark:text-gray-200">
+        I'm a USAF Veteran, I got my degree in Electrical and Computer Engineering with a minor in Computer Science.
+        I strive to be a developer who loves solving problems and creating things that matter.
+        I have experience in frontend, backend, and everything in between. I strive to write elegant, maintainable code and learn continuously.
+      </p>
+    </div>
+  </section>
+  <!-- Current Position-->
+  <section id="current-position" class="px-6 py-20 text-center">
+    <div class="w-80 h-40 mx-auto mb-6 rounded-full bg-white dark:bg-gray-900 flex items-center justify-center overflow-hidden shadow-lg">
+      <img src="assets/images/Systems_Intelligence__Logo.jpg" alt="Alejandro Santos" class="w-full h-full object-cover" />
+    </div>
+    <h3 class="text-2xl font-semibold mb-4">Current Position</h3>
+    <p class="text-gray-600 dark:text-gray-300 mb-4">Currently, I am a Software Engineer at Systems Intelligence LLC.</p>
+    <p class="text-lg font-medium">I work on various projects, focusing on software engineering and electrical engineering and platform engineering.</p>
+  </section>  
+  <!-- Projects -->
+  <section id="projects" class="px-6 py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-5xl mx-auto">
+      <h3 class="text-2xl font-semibold text-center mb-10">Projects</h3>
+      <div id="project-list" class="flex flex-wrap justify-center gap-8"></div>
+    </div>
+  </section>
+
+  <!-- Resume -->
+  <section id="resume" class="px-6 py-20 bg-gray-50 dark:bg-gray-800 text-center">
+    <h3 class="text-2xl font-semibold mb-4">Resume</h3>
+    <p class="mb-6 text-gray-600 dark:text-gray-300">You can view or download my resume below.</p>
+    <a href="assets/resume.pdf" target="_blank" class="inline-block bg-black text-white px-6 py-2 rounded-full">Download Resume</a>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="px-6 py-20 text-center">
+    <h3 class="text-2xl font-semibold mb-4">Contact</h3>
+    <p class="text-gray-600 dark:text-gray-300 mb-4">Let's connect. You can reach me at:</p>
+    <p class="text-lg font-medium">raul.santos@systemsintelligencellc.com | rsantos4@arizona.edu</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 text-sm text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-700">
+    &copy; 2025 Alejandro Santos. All rights reserved.
+  </footer>
+
+  <script>
+    // Dark mode toggle function
+    function toggleDarkMode() {
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    }
+
+    // On page load: apply saved theme
+    window.onload = function () {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    };
+
+    // Rotating Hero Avatar Images
+    const heroImages = [
+      "assets/images/UA.jpg",
+      "assets/images/USAF.jpg",
+      "assets/images/DEV.jpg"
+    ];
+
+    let currentIndex = 0;
+    const heroAvatar = document.getElementById('hero-avatar');
+
+    setInterval(() => {
+      heroAvatar.style.opacity = 0;
+      setTimeout(() => {
+        currentIndex = (currentIndex + 1) % heroImages.length;
+        heroAvatar.src = heroImages[currentIndex];
+        heroAvatar.style.opacity = 1;
+      }, 500);
+    }, 3000);
+
+    // Highlight active nav link on scroll
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 80;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active-link');
+        if (link.getAttribute('href').includes(current)) {
+          link.classList.add('active-link');
+        }
+      });
+    });
+
+    // Project data and render
+    const projects = [
+      {
+        title: "Systems Engineering Process",
+        description: "Applied model-based systems Engineering Methodologies. Detailed System Concepts and operational documentation.",
+        image: "assets/images/SEProcess.png",
+      },
+      {
+        title: "Airborne Ready",
+        description: "An Application for Data management for the United States Army.",
+        image: "assets/images/AReady.png"
+      },
+      {
+        title: "A-10 USAF Simulator",
+        description: "Developed and Sustained a simulator for the United States Air Force.",
+        image: "assets/images/A10-Thunder.jpg"
+      }
+    ];
+
+    const projectList = document.getElementById('project-list');
+    projects.forEach((project, index) => {
+      const div = document.createElement('div');
+      const widthClass = index < 3 ? 'w-[45%]' : 'w-full max-w-xl';
+
+      div.className = `border rounded-xl p-4 shadow-sm bg-white dark:bg-gray-700 ${widthClass}`;
+      div.innerHTML = `
+        <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover rounded mb-4" />
+        <h4 class="text-xl font-bold mb-2">${project.title}</h4>
+        <p class="text-gray-600 dark:text-gray-300">${project.description}</p>
+      `;
+      projectList.appendChild(div);
+    });
+  </script>
+
+</body>
+</html>
