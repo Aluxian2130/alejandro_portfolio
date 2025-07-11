@@ -11,6 +11,17 @@
     };
   </script>
   <style>
+      .static-glow {
+    box-shadow: 0 0 20px 6px rgba(0, 100, 0, 0.7); /* static dark green glow */
+  }
+    .glow-on-hover {
+      transition: box-shadow 0.4s ease;
+    }
+
+    .glow-on-hover:hover {
+      box-shadow: 0 0 20px 6px rgba(0, 100, 0, 0.7); /* dark green glow */
+    }
+
     html {
       scroll-behavior: smooth;
     }
@@ -19,6 +30,29 @@
       text-decoration: underline;
     }
   </style>
+  <style>
+.tilt-wrapper {
+  perspective: 1000px;
+}
+
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+.tilt-inner {
+  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+/* optional: add slight scale and tilt on hover */
+.tilt-card:hover .tilt-inner {
+  transform: rotateY(10deg) rotateX(5deg) scale(1.02);
+}
+
+</style>
+
 </head>
 <body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 font-sans">
 
@@ -35,13 +69,15 @@
   </nav>
 
   <!-- Hero -->
-  <section class="min-h-screen flex flex-col justify-center items-center text-center px-4">
+  <section class="min-h-screen flex flex-col justify-center items-center text-center px-4 relative overflow-hidden">
+    <!-- Sparkles Background -->
+    <div id="sparkles-bg" class="absolute inset-0 pointer-events-none z-0"></div>
     <!-- Circle avatar container -->
-    <div class="w-40 h-40 mb-6 rounded-full overflow-hidden shadow-lg flex items-center justify-center">
+    <div class="w-40 h-40 mb-6 rounded-full overflow-hidden flex items-center justify-center z-10 static-glow">
       <img id="hero-avatar" src="assets/images/UA.jpg" alt="Alejandro Santos" class="w-full h-full object-cover transition-opacity duration-500 rounded-full" />
     </div>
-    <h2 class="text-4xl font-bold mb-2">Hello, I'm Alejandro Santos</h2>
-    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-xl">
+    <h2 class="text-4xl font-bold mb-2 z-10">Hello, I'm Alejandro Santos</h2>
+    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-xl z-10">
       I'm a detail oriented software engineer who is passionate about building clean and performant applications. Welcome to my minimalist portfolio. This is a showcase of my work, skills, and interests. 
       This portfolio is built with Tailwind CSS and Vanilla JavaScript, focusing on simplicity and performance.
       <br>
@@ -56,9 +92,9 @@
     <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-start gap-12">
       <!-- About -->
       <div class="flex-1 flex flex-col items-center md:items-start">
-        <div class="flex-shrink-0 w-40 h-40 rounded-full overflow-hidden shadow-lg mb-6">
-          <img src="assets/images/selfie.jpg" alt="Alejandro Santos Selfie" class="w-full h-full object-cover rounded-full" />
-        </div>
+      <div class="w-40 h-40 mb-6 rounded-full overflow-hidden flex items-center justify-center z-10 static-glow">
+        <img id="hero-avatar" src="assets/images/selfie.jpg" alt="Alejandro Santos" class="w-full h-full object-cover transition-opacity duration-500 rounded-full" />
+      </div>
         <h3 class="text-2xl font-semibold mb-4 font-sans tracking-tight text-center md:text-left">About Me</h3>
         <p class="text-gray-700 dark:text-gray-200 text-center md:text-left">
           I'm a United States Airforce Reservist/Veteran, I got my degree in Electrical and Computer Engineering with a minor in Computer Science.
@@ -71,7 +107,7 @@
       </div>
       <!-- Hobbies -->
       <div class="flex-1 flex flex-col items-center md:items-start">
-        <div class="flex-shrink-0 w-40 h-40 rounded-full overflow-hidden shadow-lg mb-6 bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+        <div class="w-40 h-40 mb-6 rounded-full overflow-hidden flex items-center justify-center z-10 static-glow">
           <img id = "hobbies-avatar" src="assets/images/WoW.jpg" alt="Alejandro Santos Hobbies" class="w-full h-full object-cover transition-opacity duration-500 rounded-full" />
         </div>
         <h3 class="text-2xl font-semibold mb-4 font-sans tracking-tight text-center md:text-left">Hobbies</h3>
@@ -222,15 +258,74 @@
       const div = document.createElement('div');
       const widthClass = index < 4 ? 'w-[45%]' : 'w-full max-w-xl';
 
-      div.className = `border rounded-xl p-4 shadow-sm bg-white dark:bg-gray-700 ${widthClass}`;
-      div.innerHTML = `
-        <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover rounded mb-4" />
-        <h4 class="text-xl font-bold mb-2">${project.title}</h4>
-        <p class="text-gray-600 dark:text-gray-300">${project.description}</p>
-      `;
+    div.className = `border rounded-xl p-4 shadow-lg bg-white dark:bg-gray-700 ${widthClass}`;
+
+    div.innerHTML = `
+      <div class="tilt-wrapper mb-4">
+        <div class="tilt-card">
+          <div class="tilt-inner static-glow">
+            <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover rounded" />
+          </div>
+        </div>
+      </div>
+      <h4 class="text-xl font-bold mb-2">${project.title}</h4>
+      <p class="text-gray-600 dark:text-gray-300">${project.description}</p>
+    `;
       projectList.appendChild(div);
     });
   </script>
+      <script>
+      // Sparkles animation
+      const sparklesBg = document.getElementById('sparkles-bg');
+      const sparkleCount = 30;
+      const sparkles = [];
+
+      function randomBetween(a, b) {
+        return a + Math.random() * (b - a);
+      }
+
+      for (let i = 0; i < sparkleCount; i++) {
+        const sparkle = document.createElement('div');
+        const size = randomBetween(1, 5);
+        sparkle.style.position = 'absolute';
+        sparkle.style.width = `${size}px`;
+        sparkle.style.height = `${size}px`;
+        sparkle.style.borderRadius = '50%';
+        sparkle.style.background = 'radial-gradient(circle, #60aaff 60%, rgba(96,170,255,0.2) 100%)';
+        sparkle.style.opacity = randomBetween(0.5, 0.9);
+        sparkle.style.left = `${randomBetween(0, 100)}%`;
+        sparkle.style.top = `${randomBetween(0, 100)}%`;
+        sparkle.style.filter = 'blur(0.5px)';
+        sparkle.style.pointerEvents = 'none';
+        sparkle.dataset.dx = randomBetween(-0.2, 0.2);
+        sparkle.dataset.dy = randomBetween(-0.1, 0.1);
+        sparklesBg.appendChild(sparkle);
+        sparkles.push(sparkle);
+      }
+
+      function animateSparkles() {
+        sparkles.forEach(sparkle => {
+          let left = parseFloat(sparkle.style.left);
+          let top = parseFloat(sparkle.style.top);
+          let dx = parseFloat(sparkle.dataset.dx);
+          let dy = parseFloat(sparkle.dataset.dy);
+
+          left += dx;
+          top += dy;
+
+          // Wrap around edges
+          if (left < 0) left = 100;
+          if (left > 100) left = 0;
+          if (top < 0) top = 100;
+          if (top > 100) top = 0;
+
+          sparkle.style.left = `${left}%`;
+          sparkle.style.top = `${top}%`;
+        });
+        requestAnimationFrame(animateSparkles);
+      }
+      animateSparkles();
+    </script>
 
 </body>
 </html>
