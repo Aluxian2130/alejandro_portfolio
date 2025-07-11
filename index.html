@@ -37,24 +37,51 @@
   <!-- Hero -->
   <section class="min-h-screen flex flex-col justify-center items-center text-center px-4">
     <!-- Circle avatar container -->
-    <div class="w-56 h-40 mb-6 rounded-full overflow-hidden shadow-lg flex items-center justify-center">
-      <img id="hero-avatar" src="assets/images/UA.jpg" alt="Alejandro Santos" class="w-full h-full object-cover transition-opacity duration-500" style="border-radius: 50% / 40%;" />
+    <div class="w-40 h-40 mb-6 rounded-full overflow-hidden shadow-lg flex items-center justify-center">
+      <img id="hero-avatar" src="assets/images/UA.jpg" alt="Alejandro Santos" class="w-full h-full object-cover transition-opacity duration-500 rounded-full" />
     </div>
     <h2 class="text-4xl font-bold mb-2">Hello, I'm Alejandro Santos</h2>
     <p class="text-lg text-gray-600 dark:text-gray-300 max-w-xl">
-      I'm a software engineer passionate about building clean and performant applications. Welcome to my minimalist portfolio.
+      I'm a detail oriented software engineer who is passionate about building clean and performant applications. Welcome to my minimalist portfolio. This is a showcase of my work, skills, and interests. 
+      This portfolio is built with Tailwind CSS and Vanilla JavaScript, focusing on simplicity and performance.
+      <br>
+      <span class="inline-block mt-4 text-base text-gray-500 dark:text-gray-400">
+        Based in Austin,TX &mdash; available for remote and on-site opportunities.
+      </span>
+      <span class="inline-block mt-2 text-base text-gray-500 dark:text-gray-400">
+        Education: B.S. in Electrical and Computer Engineering, Minor in Computer Science from the University of Arizona.
+      </span>
     </p>
   </section>
 
-  <!-- About -->
-  <section id="about" class="px-6 py-20 bg-gray-50 dark:bg-gray-800">
-    <div class="max-w-3xl mx-auto text-center">
-      <h3 class="text-2xl font-semibold mb-4">About Me</h3>
-      <p class="text-gray-700 dark:text-gray-200">
-        I'm a USAF Veteran, I got my degree in Electrical and Computer Engineering with a minor in Computer Science.
-        I strive to be a developer who loves solving problems and creating things that matter.
-        I have experience in frontend, backend, and everything in between. I strive to write elegant, maintainable code and learn continuously.
-      </p>
+  <!-- About & Hobbies -->
+  <section class="px-6 py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-start gap-12">
+      <!-- About -->
+      <div class="flex-1 flex flex-col items-center md:items-start">
+        <div class="flex-shrink-0 w-40 h-40 rounded-full overflow-hidden shadow-lg mb-6">
+          <img src="assets/images/selfie.jpg" alt="Alejandro Santos Selfie" class="w-full h-full object-cover rounded-full" />
+        </div>
+        <h3 class="text-2xl font-semibold mb-4 font-sans tracking-tight text-center md:text-left">About Me</h3>
+        <p class="text-gray-700 dark:text-gray-200 text-center md:text-left">
+          I'm a United States Airforce Reservist/Veteran, I got my degree in Electrical and Computer Engineering with a minor in Computer Science.
+          I strive to be a developer who loves solving problems and creating things that matter.
+          I have experience in frontend, backend, and everything in between. I strive to write elegant, maintainable code and learn continuously.
+        </p>
+      </div>
+      <!-- Hobbies -->
+      <div class="flex-1 flex flex-col items-center md:items-start">
+        <div class="flex-shrink-0 w-40 h-40 rounded-full overflow-hidden shadow-lg mb-6 bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+          <img id = "hobbies-avatar" src="assets/images/WoW.jpg" alt="Alejandro Santos Hobbies" class="w-full h-full object-cover transition-opacity duration-500 rounded-full" />
+        </div>
+        <h3 class="text-2xl font-semibold mb-4 font-sans tracking-tight text-center md:text-left">Hobbies</h3>
+        <ul class="text-gray-700 dark:text-gray-200 list-disc list-inside text-center md:text-left">
+          <li>Movies</li>
+          <li>Gaming</li>
+          <li>Tinkering</li>
+          <li>Family</li>
+        </ul>
+      </div>
     </div>
   </section>
   <!-- Current Position-->
@@ -64,7 +91,9 @@
     </div>
     <h3 class="text-2xl font-semibold mb-4">Current Position</h3>
     <p class="text-gray-600 dark:text-gray-300 mb-4">Currently, I am a Software Engineer at Systems Intelligence LLC.</p>
-    <p class="text-lg font-medium">I work on various projects, focusing on software engineering and electrical engineering and platform engineering.</p>
+    <p class="text-lg font-medium">I work on various projects for the United States Army, focusing on software engineering, electrical engineering and platform engineering.
+      We build software from Full stack web applications to embedded systems.
+    </p>
   </section>  
   <!-- Projects -->
   <section id="projects" class="px-6 py-20 bg-gray-50 dark:bg-gray-800">
@@ -125,6 +154,24 @@
         heroAvatar.style.opacity = 1;
       }, 500);
     }, 3000);
+    
+    const heroHobbiesImages = [
+      "assets/images/WoW.jpg",
+      "assets/images/Cinemark.jpg",
+      "assets/images/Tinker.png"
+    ];
+    let currentIndexHobbies = 0;
+    const heroHobbiesAvatar = document.getElementById('hobbies-avatar');
+
+    // Rotating Hobbies Avatar Images
+    setInterval(() => {
+      heroHobbiesAvatar.style.opacity = 0;
+      setTimeout(() => {
+        currentIndexHobbies = (currentIndexHobbies + 1) % heroHobbiesImages.length;
+        heroHobbiesAvatar.src = heroHobbiesImages[currentIndexHobbies];
+        heroHobbiesAvatar.style.opacity = 1;
+      }, 500);
+    }, 5000);
 
     // Highlight active nav link on scroll
     const sections = document.querySelectorAll('section');
@@ -148,26 +195,31 @@
     // Project data and render
     const projects = [
       {
-        title: "Systems Engineering Process",
-        description: "Applied model-based systems Engineering Methodologies. Detailed System Concepts and operational documentation.",
+        title: "Systems Engineering Process Model",
+        description: "Applied model-based systems Engineering Methodologies. Itcconsisted of a detailed analysis of the system requirements and architecture for an automated video doorbell system that mimicked Ring, Google Nest, and other similar products.",
         image: "assets/images/SEProcess.png",
       },
       {
         title: "Airborne Ready",
-        description: "An Application for Data management for the United States Army.",
+        description: "A Full Stack Application for Data management for the United States Army that solved accountability and readiness status issues the Army was dealing with.",
         image: "assets/images/AReady.png"
       },
       {
         title: "A-10 USAF Simulator",
-        description: "Developed and Sustained a simulator for the United States Air Force.",
+        description: "Developed and Sustained an embedded systems simulator for the United States Air Force. The code was written in C++/ADA and used to simulate the A-10 Thunderbolt II aircraft systems.",
         image: "assets/images/A10-Thunder.jpg"
+      },
+      {
+        title: "Hear Rate Monitoring System",
+        description: "Designed and implemented a heart rate monitoring system using Arduino and sensors. The system collected heart rate data and displayed it in real-time on an LCD screen. It also included a full stack web interface for remote monitoring, and account management.",
+        image: "assets/images/HeartRate.jpg"
       }
     ];
 
     const projectList = document.getElementById('project-list');
     projects.forEach((project, index) => {
       const div = document.createElement('div');
-      const widthClass = index < 3 ? 'w-[45%]' : 'w-full max-w-xl';
+      const widthClass = index < 4 ? 'w-[45%]' : 'w-full max-w-xl';
 
       div.className = `border rounded-xl p-4 shadow-sm bg-white dark:bg-gray-700 ${widthClass}`;
       div.innerHTML = `
