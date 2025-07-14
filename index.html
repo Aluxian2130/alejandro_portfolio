@@ -65,6 +65,12 @@
       <a href="#resume" class="nav-link hover:underline">Resume</a>
       <a href="#contact" class="nav-link hover:underline">Contact</a>
       <button onclick="toggleDarkMode()" class="ml-4 px-3 py-1 border rounded">🌓</button>
+      <script>
+        if (!localStorage.getItem('theme')) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+        }
+      </script>
     </div>
   </nav>
 
@@ -89,34 +95,37 @@
 
   <!-- About & Hobbies -->
   <section class="px-6 py-20 bg-gray-50 dark:bg-gray-800">
-    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-start gap-12">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-center gap-16">
       <!-- About -->
-      <div class="flex-1 flex flex-col items-center md:items-start">
-      <div class="w-40 h-40 mb-6 rounded-full overflow-hidden flex items-center justify-center z-10 static-glow">
-        <img id="hero-avatar" src="assets/images/selfie.jpg" alt="Alejandro Santos" class="w-full h-full object-cover transition-opacity duration-500 rounded-full" />
-      </div>
-        <h3 class="text-2xl font-semibold mb-4 font-sans tracking-tight text-center md:text-left">About Me</h3>
-        <p class="text-gray-700 dark:text-gray-200 text-center md:text-left">
+      <div class="flex-1 flex flex-col items-center md:items-center">
+        <div class="w-40 h-40 mb-6 rounded-full overflow-hidden flex items-center justify-center z-10 static-glow">
+          <img id="hero-avatar" src="assets/images/selfie.jpg" alt="Alejandro Santos" class="w-full h-full object-cover transition-opacity duration-500 rounded-full" />
+        </div>
+        <h3 class="text-2xl font-semibold mb-4 font-sans tracking-tight text-center">About Me</h3>
+        <p class="text-gray-700 dark:text-gray-200 text-center">
           I'm a United States Airforce Reservist/Veteran, I got my degree in Electrical and Computer Engineering with a minor in Computer Science.
           I strive to be a developer who loves solving problems and creating things that matter.
           I have experience in frontend, backend, and everything in between. I strive to write elegant, maintainable code and learn continuously.
         </p>
-            <span class="inline-block mt-2 text-base text-white dark:text-gray-400">
-        Education: B.S. in Electrical and Computer Engineering, Minor in Computer Science from the University of Arizona.
-      </span>
+        <span class="inline-block mt-2 text-base text-white dark:text-gray-400 text-center">
+          Education: B.S. in Electrical and Computer Engineering, Minor in Computer Science from the University of Arizona.
+        </span>
       </div>
       <!-- Hobbies -->
-      <div class="flex-1 flex flex-col items-center md:items-start">
+      <div class="flex-1 flex flex-col items-center md:items-center">
         <div class="w-40 h-40 mb-6 rounded-full overflow-hidden flex items-center justify-center z-10 static-glow">
-          <img id = "hobbies-avatar" src="assets/images/WoW.jpg" alt="Alejandro Santos Hobbies" class="w-full h-full object-cover transition-opacity duration-500 rounded-full" />
+          <img id="hobbies-avatar" src="assets/images/WoW.jpg" alt="Alejandro Santos Hobbies" class="w-full h-full object-cover transition-opacity duration-500 rounded-full" />
         </div>
-        <h3 class="text-2xl font-semibold mb-4 font-sans tracking-tight text-center md:text-left">Hobbies</h3>
-        <ul class="text-gray-700 dark:text-gray-200 list-disc list-inside text-center md:text-left">
-          <li>Movies</li>
-          <li>Gaming</li>
-          <li>Tinkering</li>
-          <li>Family</li>
-        </ul>
+        <h3 class="text-2xl font-semibold mb-4 font-sans tracking-tight text-center">Hobbies</h3>
+        <div class="text-gray-700 dark:text-gray-200 text-left mb-4">
+          I enjoy a variety of hobbies that keep me engaged and inspired:
+          <ul class="text-gray-700 dark:text-gray-200 list-disc flex flex-col items-center justify-center">
+            <li class="mb-2">Playing World of Warcraft</li>
+            <li class="mb-2">Watching movies at Cinemark</li>
+            <li class="mb-2">Tinkering with electronics and coding projects</li>
+          </ul>
+        </div>
+        </div>
       </div>
     </div>
   </section>
