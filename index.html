@@ -83,8 +83,8 @@
     </div>
     <h2 class="text-4xl font-bold mb-2 z-10">Hello, I'm Alejandro Santos</h2>
     <p class="text-lg text-gray-600 dark:text-gray-300 max-w-xl z-10">
-      I'm a detail oriented software engineer who is passionate about building clean and performant applications. Welcome to my minimalist portfolio. This is a showcase of my work, skills, and interests. 
-      This portfolio is built with Tailwind CSS and Vanilla JavaScript, focusing on simplicity and performance.
+      I'm a detail oriented software engineer who is passionate about building clean and performant applications. Welcome to my portfolio, now running on TypeScript and Vite. This is a showcase of my work, skills, and interests.
+      This portfolio is built with Tailwind CSS and modern web tooling, focusing on simplicity and performance.
       <br>
       <span class="inline-block mt-4 text-base text-gray-500 dark:text-gray-400">
         Based in Austin,TX &mdash; available for remote and on-site opportunities.
@@ -96,7 +96,7 @@
 </section>
 
   <!-- About & Hobbies -->
-  <section class="px-6 py-20 bg-gray-50 dark:bg-gray-800">
+  <section id="about" class="px-6 py-20 bg-gray-50 dark:bg-gray-800">
     <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-center gap-16">
       <!-- About -->
       <div class="flex-1 flex flex-col items-center md:items-center">
@@ -135,21 +135,20 @@
     <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-center gap-12">
       <div class="flex-1 flex flex-col items-center text-center">
         <div class="w-80 h-40 mb-6 rounded-full bg-white dark:bg-gray-900 flex items-center justify-center overflow-hidden shadow-lg mx-auto">
-          <img src="assets/images/Systems_Intelligence__Logo.jpg" alt="Alejandro Santos" class="w-full h-full object-cover" />
+          <img src="assets/images/Boeing-Logo.jpg" alt="Alejandro Santos" class="w-full h-full object-cover" />
         </div>
         <h1 class="text-2xl font-semibold mb-4">Current Position</h1>
-        <p class="text-gray-600 dark:text-gray-300 mb-4">Currently, I am a Senior Software Engineer at Systems Intelligence LLC.</p>
-        <p class="text-lg font-medium">I work on various projects for the United States Army, focusing on software engineering while mentoring Soldiers.</p>
-        <p class="text-lg font-medium mt-2">We build software from Full stack web applications to Embedded System Applications.</p>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">Currently, I am an Embedded Software Engineer at Boeing.</p>
+        <p class="text-lg font-medium">I am attached to the AWACS FLEP program, where I upgrade the functionality of the system.</p>
+        <p class="text-lg font-medium mt-2">Development of embedded software for military aircraft systems.</p>
       </div>
       <div class="flex-1 flex flex-col items-center text-center">
         <div class="w-80 h-40 mb-6 rounded-full bg-white dark:bg-gray-900 flex items-center justify-center overflow-hidden shadow-lg mx-auto">
-          <img src="assets/images/Cymstar_Logo.jpg" alt="Previous Position" class="w-full h-full object-cover" />
+          <img src="assets/images/Systems_Intelligence__Logo.jpg" alt="Previous Position" class="w-full h-full object-cover" />
         </div>
-        <p class="text-gray-600 dark:text-gray-300 mb-4">Previously, I worked at Cymstar as an Electronics Warfare Senior Software Engineer.</p>
-        <p class="text-lg font-medium">I contributed to the development of electronic warfare and simulator software for military training systems.</p>
-        <p class="text-lg font-medium">My work focused on embedded systems, C++/ADA development, and systems engineering.</p>
-        <p class="text-lg font-medium">I also developed and sustained embedded software for the A-10 Thunderbolt II simulator, supporting realistic training for United States Air Force pilots.</p>
+ <p class="text-gray-600 dark:text-gray-300 mb-4">Previously, I was a Senior Software Engineer at Systems Intelligence LLC.</p>
+        <p class="text-lg font-medium">I work on various projects for the United States Army, focusing on software engineering while mentoring Soldiers.</p>
+        <p class="text-lg font-medium mt-2">We build software from Full stack web applications to Embedded System Applications.</p>
         <div class="mt-4">
         </div></div>
       </div>
@@ -182,172 +181,7 @@
     &copy; 2025 Alejandro Santos. All rights reserved.
   </footer>
 
-  <script>
-
-    function toggleDarkMode() {
-      document.documentElement.classList.toggle('dark');
-      localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
-    }
-
-
-    window.onload = function () {
-      if (localStorage.getItem('theme') === 'dark') {
-        document.documentElement.classList.add('dark');
-      }
-    };
-
-
-    const heroImages = [
-      "assets/images/UA.jpg",
-      "assets/images/USAF.jpg",
-      "assets/images/DEV.jpg"
-    ];
-
-    let currentIndex = 0;
-    const heroAvatar = document.getElementById('hero-avatar');
-
-    setInterval(() => {
-      heroAvatar.style.opacity = 0;
-      setTimeout(() => {
-        currentIndex = (currentIndex + 1) % heroImages.length;
-        heroAvatar.src = heroImages[currentIndex];
-        heroAvatar.style.opacity = 1;
-      }, 500);
-    }, 3000);
-    
-    const heroHobbiesImages = [
-      "assets/images/WoW.jpg",
-      "assets/images/Cinemark.jpg",
-      "assets/images/Tinker.png"
-    ];
-    let currentIndexHobbies = 0;
-    const heroHobbiesAvatar = document.getElementById('hobbies-avatar');
-
-
-    setInterval(() => {
-      heroHobbiesAvatar.style.opacity = 0;
-      setTimeout(() => {
-        currentIndexHobbies = (currentIndexHobbies + 1) % heroHobbiesImages.length;
-        heroHobbiesAvatar.src = heroHobbiesImages[currentIndexHobbies];
-        heroHobbiesAvatar.style.opacity = 1;
-      }, 500);
-    }, 5000);
-
-
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-link');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 80;
-        if (pageYOffset >= sectionTop) {
-          current = section.getAttribute('id');
-        }
-      });
-      navLinks.forEach(link => {
-        link.classList.remove('active-link');
-        if (link.getAttribute('href').includes(current)) {
-          link.classList.add('active-link');
-        }
-      });
-    });
-
-
-    const projects = [
-      {
-        title: "Systems Engineering Process Model",
-        description: "Applied model-based systems Engineering Methodologies. Itcconsisted of a detailed analysis of the system requirements and architecture for an automated video doorbell system that mimicked Ring, Google Nest, and other similar products.",
-        image: "assets/images/SEProcess.png",
-      },
-      {
-        title: "Airborne Ready",
-        description: "A Full Stack Application for Data management for the United States Army that solved accountability and readiness status issues the Army was dealing with.",
-        image: "assets/images/AReady.png"
-      },
-      {
-        title: "A-10 USAF Simulator",
-        description: "Developed and Sustained an embedded systems simulator for the United States Air Force. The code was written in C++/ADA and used to simulate the A-10 Thunderbolt II aircraft systems.",
-        image: "assets/images/A10-Thunder.jpg"
-      },
-      {
-        title: "Soldier Solutions",
-        description: "A full stack application for managing soldier data and readiness status for the United States Army. Built with a focus on usability and performance.",
-        image: "assets/images/ASWF-header-logo.svg",
-        size: "small"
-      }
-    ];
-
-    const projectList = document.getElementById('project-list');
-    projects.forEach((project, index) => {
-      const div = document.createElement('div');
-      const widthClass = index < 4 ? 'w-[45%]' : 'w-full max-w-xl';
-
-    div.className = `border rounded-xl p-4 shadow-lg bg-white dark:bg-gray-700 ${widthClass}`;
-    div.innerHTML = `
-      <div class="tilt-wrapper mb-4">
-        <div class="tilt-card">
-          <div class="tilt-inner static-glow">
-            <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover rounded" />
-          </div>
-        </div>
-      </div>
-      <h4 class="text-xl font-bold mb-2">${project.title}</h4>
-      <p class="text-gray-600 dark:text-gray-300">${project.description}</p>
-    `;
-      projectList.appendChild(div);
-    });
-  </script>
-      <script>
-
-      const sparklesBg = document.getElementById('sparkles-bg');
-      const sparkleCount = 30;
-      const sparkles = [];
-
-      function randomBetween(a, b) {
-        return a + Math.random() * (b - a);
-      }
-
-      for (let i = 0; i < sparkleCount; i++) {
-        const sparkle = document.createElement('div');
-        const size = randomBetween(1, 5);
-        sparkle.style.position = 'absolute';
-        sparkle.style.width = `${size}px`;
-        sparkle.style.height = `${size}px`;
-        sparkle.style.borderRadius = '50%';
-        sparkle.style.background = 'radial-gradient(circle, #60aaff 60%, rgba(96,170,255,0.2) 100%)';
-        sparkle.style.opacity = randomBetween(0.5, 0.9);
-        sparkle.style.left = `${randomBetween(0, 100)}%`;
-        sparkle.style.top = `${randomBetween(0, 100)}%`;
-        sparkle.style.filter = 'blur(0.5px)';
-        sparkle.style.pointerEvents = 'none';
-        sparkle.dataset.dx = randomBetween(-0.2, 0.2);
-        sparkle.dataset.dy = randomBetween(-0.1, 0.1);
-        sparklesBg.appendChild(sparkle);
-        sparkles.push(sparkle);
-      }
-
-      function animateSparkles() {
-        sparkles.forEach(sparkle => {
-          let left = parseFloat(sparkle.style.left);
-          let top = parseFloat(sparkle.style.top);
-          let dx = parseFloat(sparkle.dataset.dx);
-          let dy = parseFloat(sparkle.dataset.dy);
-
-          left += dx;
-          top += dy;
-
-          if (left < 0) left = 100;
-          if (left > 100) left = 0;
-          if (top < 0) top = 100;
-          if (top > 100) top = 0;
-
-          sparkle.style.left = `${left}%`;
-          sparkle.style.top = `${top}%`;
-        });
-        requestAnimationFrame(animateSparkles);
-      }
-      animateSparkles();
-    </script>
+  <script type="module" src="/src/main.ts"></script>
 
 </body>
 </html>

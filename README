@@ -1,24 +1,45 @@
 # Alejandro Santos | Portfolio
 
-This is my minimalist, custom-coded portfolio built with HTML, Tailwind CSS, and vanilla JavaScript. It showcases my bio, projects, resume, and contact info.
+This is my minimalist portfolio built with TypeScript, Vite, and Tailwind CSS. It showcases my bio, projects, resume, and contact information with a modern local development workflow.
 
 ### 🔧 Tech Stack
-- HTML5
+- Vite
+- TypeScript
 - Tailwind CSS
-- JavaScript (for dynamic project rendering & dark mode)
+- Vanilla DOM scripting
 
 ### 🌐 Live Site
-[https://yourusername.github.io/your-repo-name](https://yourusername.github.io/your-repo-name)
+Update this link with your published site URL.
 
 ### 📄 Features
 - Dark mode toggle
 - Scroll-linked navigation
 - Dynamic project loading
+- Sparkle background animation
 - Resume download
 - Fully responsive layout
 
 ### 🚀 Setup
 1. Clone the repo
-2. Add your `resume.pdf` to `/assets/`
-3. Replace the placeholder email and project info
-4. Push to GitHub and enable Pages from the Settings tab
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the local dev server:
+   ```bash
+   npm run dev
+   ```
+4. Build for production:
+   ```bash
+   npm run build
+   ```
+5. Preview the production build:
+   ```bash
+   npm run preview
+   ```
+
+### 🛠️ Notes
+- `index.html` is the Vite entry point.
+- Dynamic page behavior lives in `src/main.ts`.
+- Additional app logic is split into modules under `src/`.
+- Keep `assets/resume.pdf` in `assets/` for resume downloads.
