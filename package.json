@@ -1,6 +1,7 @@
 {
   "devDependencies": {
     "@types/node": "^24.3.0",
+    "gh-pages": "^6.3.0",
     "tailwindcss": "^4.1.11",
     "typescript": "^5.9.3",
     "vite": "^5.4.10"
@@ -13,7 +14,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -25,5 +28,5 @@
   "bugs": {
     "url": "https://github.com/Aluxian2130/alejandro_portfolio/issues"
   },
-  "homepage": "https://github.com/Aluxian2130/alejandro_portfolio#readme"
+  "homepage": "https://Aluxian2130.github.io/alejandro_portfolio/"
 }
