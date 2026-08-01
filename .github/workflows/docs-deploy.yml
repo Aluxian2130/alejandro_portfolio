@@ -1,0 +1,52 @@
+name: Build and publish docs
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-publish:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build --if-present
+
+      - name: Copy build to docs
+        run: |
+          rm -rf docs || true
+          mkdir -p docs
+          cp -R dist/* docs/
+
+      - name: Commit and push docs
+        env:
+          GIT_COMMITTER_NAME: github-actions[bot]
+          GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+        run: |
+          git config user.name "${GIT_COMMITTER_NAME}"
+          git config user.email "${GIT_COMMITTER_EMAIL}"
+          git add docs
+          if git diff --cached --quiet; then
+            echo "No changes to docs; nothing to commit"
+            exit 0
+          fi
+          git commit -m "ci: update docs from dist [skip ci]"
+          git push origin HEAD:main
