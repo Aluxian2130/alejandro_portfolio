@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alejandro Santos | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    };
+  </script>
+  <style>
+      .static-glow {
+    box-shadow: 0 0 20px 6px rgba(0, 100, 0, 0.7); /* static dark green glow */
+  }
+    .glow-on-hover {
+      transition: box-shadow 0.4s ease;
+    }
+
+    .glow-on-hover:hover {
+      box-shadow: 0 0 20px 6px rgba(0, 100, 0, 0.7); /* dark green glow */
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+    .active-link {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  </style>
+  <style>
+.tilt-wrapper {
+  perspective: 1000px;
+}
+
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+.tilt-inner {
+  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.tilt-card:hover .tilt-inner {
+  transform: rotateY(10deg) rotateX(5deg) scale(1.02);
+}
+
+</style>
+
+  <script type="module" crossorigin src="/alejandro_portfolio/assets/index-Dujd1x0g.js"></script>
+</head>
+<body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 font-sans">
+
+  <!-- Navbar -->
+  <nav class="w-full flex justify-between items-center p-4 shadow-md sticky top-0 bg-white dark:bg-gray-900 z-50">
+    <h1 class="text-xl font-bold">Console Port</h1>
+    <div class="space-x-4">
+      <a href="#about" class="nav-link hover:underline">About</a>
+      <a href="#projects" class="nav-link hover:underline">Projects</a>
+      <a href="#resume" class="nav-link hover:underline">Resume</a>
+      <a href="#contact" class="nav-link hover:underline">Contact</a>
+      <button onclick="toggleDarkMode()" class="ml-4 px-3 py-1 border rounded">🌓</button>
+      <script>
+        if (!localStorage.getItem('theme')) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+        }
+      </script>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="min-h-screen flex flex-col justify-center items-center text-center px-4 relative overflow-hidden">
+    <!-- Sparkles Background -->
+    <div id="sparkles-bg" class="absolute inset-0 pointer-events-none z-0"></div>
+    <!-- Circle avatar container -->
+    <div class="w-40 h-40 mb-6 rounded-full overflow-hidden flex items-center justify-center z-10 static-glow">
+      <img id="hero-avatar" src="/alejandro_portfolio/assets/UA-Cyyv3ZJ9.jpg" alt="Alejandro Santos" class="w-full h-full object-cover transition-opacity duration-500 rounded-full" />
+    </div>
+    <h2 class="text-4xl font-bold mb-2 z-10">Hello, I'm Alejandro Santos</h2>
+    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-xl z-10">
+      I'm a detail oriented software engineer who is passionate about building clean and performant applications. Welcome to my portfolio, now running on TypeScript and Vite. This is a showcase of my work, skills, and interests.
+      This portfolio is built with Tailwind CSS and modern web tooling, focusing on simplicity and performance.
+      <br>
+      <span class="inline-block mt-4 text-base text-gray-500 dark:text-gray-400">
+        Based in Austin,TX &mdash; available for remote and on-site opportunities.
+      </span>
+    </p>
+  </section>
+<section>
+  
+</section>
+
+  <!-- About & Hobbies -->
+  <section id="about" class="px-6 py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-center gap-16">
+      <!-- About -->
+      <div class="flex-1 flex flex-col items-center md:items-center">
+        <div class="w-40 h-40 mb-6 rounded-full overflow-hidden flex items-center justify-center z-10 static-glow">
+          <img id="hero-avatar" src="/alejandro_portfolio/assets/selfie-BEHakME7.jpg" alt="Alejandro Santos" class="w-full h-full object-cover transition-opacity duration-500 rounded-full" />
+        </div>
+        <h3 class="text-2xl font-semibold mb-4 font-sans tracking-tight text-center">About Me</h3>
+        <p class="text-gray-700 dark:text-gray-200 text-center">
+          I'm a United States Airforce Reservist/Veteran, I got my degree in Electrical and Computer Engineering with a minor in Computer Science.
+          I strive to be a developer who loves solving problems and creating things that matter.
+          I have experience in frontend, backend, and everything in between. I strive to write elegant, maintainable code and learn continuously.
+        </p>
+        <span class="inline-block mt-2 text-base text-white dark:text-gray-400 text-center">
+          Education: B.S. in Electrical and Computer Engineering, Minor in Computer Science from the University of Arizona.
+        </span>
+      </div>
+      <!-- Hobbies -->
+      <div class="flex-1 flex flex-col items-center md:items-center">
+        <div class="w-40 h-40 mb-6 rounded-full overflow-hidden flex items-center justify-center z-10 static-glow">
+          <img id="hobbies-avatar" src="/alejandro_portfolio/assets/WoW-Bwd_RNzE.jpg" alt="Alejandro Santos Hobbies" class="w-full h-full object-cover transition-opacity duration-500 rounded-full" />
+        </div>
+        <h3 class="text-2xl font-semibold mb-4 font-sans tracking-tight text-center">Hobbies</h3>
+        <div class="text-gray-700 dark:text-gray-200 text-left mb-4">
+          I enjoy a variety of hobbies that keep me engaged and inspired:
+          <ul class="text-gray-700 dark:text-gray-200 list-disc flex flex-col items-center justify-center">
+            <li class="mb-2">Playing World of Warcraft</li>
+            <li class="mb-2">Watching movies at Cinemark</li>
+            <li class="mb-2">Tinkering with electronics and coding projects</li>
+          </ul>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="current-position" class="px-6 py-20">
+    <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-center gap-12">
+      <div class="flex-1 flex flex-col items-center text-center">
+        <div class="w-80 h-40 mb-6 rounded-full bg-white dark:bg-gray-900 flex items-center justify-center overflow-hidden shadow-lg mx-auto">
+          <img src="/alejandro_portfolio/assets/Boeing-Logo-BOnNR-5T.jpg" alt="Alejandro Santos" class="w-full h-full object-cover" />
+        </div>
+        <h1 class="text-2xl font-semibold mb-4">Current Position</h1>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">Currently, I am an Embedded Software Engineer at Boeing.</p>
+        <p class="text-lg font-medium">I am attached to the AWACS FLEP program, where I upgrade the functionality of the system.</p>
+        <p class="text-lg font-medium mt-2">Development of embedded software for military aircraft systems.</p>
+      </div>
+      <div class="flex-1 flex flex-col items-center text-center">
+        <div class="w-80 h-40 mb-6 rounded-full bg-white dark:bg-gray-900 flex items-center justify-center overflow-hidden shadow-lg mx-auto">
+          <img src="/alejandro_portfolio/assets/Systems_Intelligence__Logo-CKTwnLZZ.jpg" alt="Previous Position" class="w-full h-full object-cover" />
+        </div>
+ <p class="text-gray-600 dark:text-gray-300 mb-4">Previously, I was a Senior Software Engineer at Systems Intelligence LLC.</p>
+        <p class="text-lg font-medium">I work on various projects for the United States Army, focusing on software engineering while mentoring Soldiers.</p>
+        <p class="text-lg font-medium mt-2">We build software from Full stack web applications to Embedded System Applications.</p>
+        <div class="mt-4">
+        </div></div>
+      </div>
+    </div>
+  </section>
+  <!-- Projects -->
+  <section id="projects" class="px-6 py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-5xl mx-auto">
+      <h3 class="text-2xl font-semibold text-center mb-10">Projects</h3>
+      <div id="project-list" class="flex flex-wrap justify-center gap-8"></div>
+    </div>
+  </section>
+
+  <!-- Resume -->
+  <section id="resume" class="px-6 py-20 bg-gray-50 dark:bg-gray-800 text-center">
+    <h3 class="text-2xl font-semibold mb-4">Resume</h3>
+    <p class="mb-6 text-gray-600 dark:text-gray-300">You can view or download my resume below.</p>
+    <a href="assets/resume.pdf" target="_blank" class="inline-block bg-black text-white px-6 py-2 rounded-full">Download Resume</a>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="px-6 py-20 text-center">
+    <h3 class="text-2xl font-semibold mb-4">Contact</h3>
+    <p class="text-gray-600 dark:text-gray-300 mb-4">Let's connect. You can reach me at:</p>
+    <p class="text-lg font-medium">dro213010@gmail.com | rsantos4@arizona.edu</p>
+    <p class="text-lg font-medium mt-2">LinkedIn: <a href="https://www.linkedin.com/in/raul-santos-567753122/" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Alejandro Santos</a></p>
+  </section>
+
+  <footer class="text-center py-6 text-sm text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-700">
+    &copy; 2025 Alejandro Santos. All rights reserved.
+  </footer>
+
+
+</body>
+</html>
