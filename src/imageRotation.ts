@@ -1,5 +1,13 @@
-const heroImages = ['assets/images/UA.jpg', 'assets/images/USAF.jpg', 'assets/images/DEV.jpg'];
-const hobbiesImages = ['assets/images/WoW.jpg', 'assets/images/Cinemark.jpg', 'assets/images/Tinker.png'];
+import UA from '../assets/images/UA.jpg';
+import USAF from '../assets/images/USAF.jpg';
+import DEV from '../assets/images/DEV.jpg';
+
+import WoW from '../assets/images/WoW.jpg';
+import Cinemark from '../assets/images/Cinemark.jpg';
+import Tinker from '../assets/images/Tinker.png';
+
+const heroImages = [UA, USAF, DEV];
+const hobbiesImages = [WoW, Cinemark, Tinker];
 
 export function initImageRotation(): void {
   const heroAvatar = document.getElementById('hero-avatar') as HTMLImageElement | null;
