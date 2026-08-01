@@ -35,6 +35,10 @@ jobs:
           rm -rf docs || true
           mkdir -p docs
           cp -R dist/* docs/
+          # ensure resume is published
+          if [ -d "resume" ]; then
+            cp -R resume docs/
+          fi
 
       - name: Commit and push docs
         env:

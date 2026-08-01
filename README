@@ -42,4 +42,4 @@ Update this link with your published site URL.
 - `index.html` is the Vite entry point.
 - Dynamic page behavior lives in `src/main.ts`.
 - Additional app logic is split into modules under `src/`.
-- Keep `assets/resume.pdf` in `assets/` for resume downloads.
+ - Resume stored at `resume/resume.pdf` for resume downloads.
